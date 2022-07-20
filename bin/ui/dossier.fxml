@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dossier">
+   <left>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #00558020;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="109.0" fitWidth="123.0" layoutX="39.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="LBnom" alignment="CENTER" layoutY="164.0" prefHeight="21.0" prefWidth="201.0" text="Yao Koumé Elie-noel" textAlignment="CENTER" />
+            <Label fx:id="LBtel" alignment="CENTER" layoutX="1.0" layoutY="185.0" prefHeight="20.0" prefWidth="199.0" text="+225 41791995" textAlignment="CENTER" />
+            <Label fx:id="LBdtnaiss" alignment="CENTER" layoutX="1.0" layoutY="205.0" prefHeight="20.0" prefWidth="199.0" text="05/12/1999" textAlignment="CENTER" />
+            <Button fx:id="BtnModifier" layoutX="29.0" layoutY="243.0" mnemonicParsing="false" onAction="#modifierInfo" prefHeight="25.0" prefWidth="143.0" style="-fx-background-color: none; -fx-border-color: #005580;" text="MODIFIER" textFill="#005580" />
+            <Button fx:id="Btnlogout" layoutX="29.0" layoutY="279.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="143.0" style="-fx-background-color: none; -fx-border-color: #800000;" text="DECONNEXION" textFill="#800000" />
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <Accordion BorderPane.alignment="CENTER">
+        <panes>
+          <TitledPane animated="false" text="Experiences">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="BtnajouterExp" layoutX="320.0" layoutY="309.0" mnemonicParsing="false" onAction="#ajouterForm" text="Ajouter" />
+                        <ScrollPane layoutX="2.0" layoutY="1.0" prefHeight="301.0" prefWidth="391.0">
+                           <content>
+                              <VBox prefHeight="307.0" prefWidth="370.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Diplomes">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane prefHeight="308.0" prefWidth="401.0">
+                           <content>
+                              <VBox prefHeight="325.0" prefWidth="378.0" />
+                           </content>
+                        </ScrollPane>
+                        <Button fx:id="BtnAjouterDip" layoutX="338.0" layoutY="322.0" mnemonicParsing="false" onAction="#AjouterDipForm" text="Ajouter" />
+                     </children></AnchorPane>
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </center>
+</BorderPane>

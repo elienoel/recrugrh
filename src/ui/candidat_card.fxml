@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="215.0" prefWidth="192.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="84.0" layoutY="172.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #005580; -fx-border-color: #005580;" text="selectionner" textFill="WHITE" />
+      <ImageView fitHeight="95.0" fitWidth="100.0" layoutX="46.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+      <Label alignment="CENTER" layoutX="16.0" layoutY="123.0" prefHeight="25.0" prefWidth="159.0" style="-fx-font-weight: bold;" text="Yao Kouame Elie-noel" />
+      <Button layoutX="18.0" layoutY="172.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: none; -fx-border-color: #005580;" text="voir" textFill="#005580" />
+      <Label alignment="CENTER" layoutX="16.0" layoutY="141.0" prefHeight="25.0" prefWidth="159.0" text="+225 00 00 00 00 00" />
+   </children>
+</Pane>
