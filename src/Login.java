@@ -3,21 +3,20 @@ import java.sql.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
 
 public class Login {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
+    
     @FXML
     private Button BtnConnexion;
 
@@ -54,22 +53,18 @@ public class Login {
         String tel= TFtel.getText();
         String pwd1= TFpwd.getText();
         
-
-        
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbmessage","root","");
-            con.close();
-
-        } catch (SQLException a) {
-            a.printStackTrace();
+        if (tel.equals("0000000000") && pwd1.equals("admin1234")) {
+            App.root = FXMLLoader.load(getClass().getResource("ui/admin.fxml"));
+        }else{
+            System.out.println("ok");
+            App.root = FXMLLoader.load(getClass().getResource("ui/dossier.fxml"));
         }
-        System.out.println("ok");
-        root = FXMLLoader.load(getClass().getResource("ui/dossier.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        
+        
+        App.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        App.scene = new Scene(App.root);
+        App.stage.setScene(App.scene);
+        App.stage.show();
     }
 
     @FXML
@@ -82,34 +77,37 @@ public class Login {
         String pwd1= TFpwd_insc.getText();
         String pwd2= TFconfirmpwd.getText();
         
-
-        
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ateliergl","root","");
-            // String query = "INSERT INTO `discussion`( `nom`, `email`, `sujet`, `message`) " + " values (?,?, ?, ?)";
-            String query = "INSERT INTO `candidat`(`NUMCANDIDAT`, `NOMCANDIDAT`, `PRENOMCANDIDAT`, `DATENAISS`, `CONTACTS`) VALUES (UUID(),?,?,?,?)";
-
-            // create the mysql insert preparedstatement
-            PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString (1, nom);
-            preparedStmt.setString (2, prenom);
-            preparedStmt.setString (3, dtnaiss);
-            preparedStmt.setString (4, tel);
-            // preparedStmt.setString (5, pwd1);
-            // execute the preparedstatement
-            preparedStmt.execute();
-            con.close();
-
-        } catch (SQLException a) {
-            a.printStackTrace();
+        if (pwd1.equals(pwd2)) {
+            try {
+                String query = "INSERT INTO `candidat`(`NUMCANDIDAT`, `NOMCANDIDAT`, `PRENOMCANDIDAT`, `DATENAISS`, `CONTACTS`) VALUES (UUID(),?,?,?,?)";
+                // create the mysql insert preparedstatement
+                PreparedStatement preparedStmt = App.con.prepareStatement(query);
+                preparedStmt.setString (1, nom);
+                preparedStmt.setString (2, prenom);
+                preparedStmt.setString (3, dtnaiss);
+                preparedStmt.setString (4, tel);
+                // preparedStmt.setString (5, pwd1);
+                // execute the preparedstatement
+                preparedStmt.execute();
+                App.con.close();
+    
+            } catch (SQLException a) {
+                a.printStackTrace();
+            }
+            System.out.println("ok");
+            App.root = FXMLLoader.load(getClass().getResource("ui/dossier.fxml"));
+            App.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            App.scene = new Scene(App.root);
+            App.stage.setScene(App.scene);
+            App.stage.show();
+            
+        } else {
+            Alert a1 = new Alert(AlertType.ERROR,"vous avez saisir des mots de passe differents",ButtonType.APPLY);
+            // show the dialog
+            a1.show();
         }
-        System.out.println("ok");
-        root = FXMLLoader.load(getClass().getResource("ui/dossier.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        
+        
     }
 
 }

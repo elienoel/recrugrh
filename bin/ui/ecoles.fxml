@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="BDmain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ecoles">
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="BOTTOM_LEFT" layoutX="15.0" layoutY="8.0" prefHeight="30.0" prefWidth="197.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Ecoles enregistrées" textFill="#005580" />
+            <ScrollPane layoutX="14.0" layoutY="38.0" prefHeight="358.0" prefWidth="286.0">
+               <content>
+                  <VBox fx:id="ecoleList" prefHeight="416.0" prefWidth="266.0" />
+               </content>
+            </ScrollPane>
+            <Pane layoutX="308.0" layoutY="37.0" prefHeight="308.0" prefWidth="233.0" style="-fx-background-color: #00558020; -fx-border-radius: 10px;">
+               <children>
+                  <Label layoutX="12.0" layoutY="3.0" prefHeight="31.0" prefWidth="177.0" style="-fx-font-weight: bold; -fx-font-size: 17px;" text="Ajouter une ecole" textAlignment="CENTER" textFill="#005580" />
+                  <TextField fx:id="TFnom" layoutX="12.0" layoutY="51.0" prefHeight="31.0" prefWidth="209.0" promptText="Nom" style="-fx-border-color: none;" />
+                  <Button fx:id="BtnEnreg" layoutX="18.0" layoutY="254.0" mnemonicParsing="false" onAction="#Enregistrer" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #005580; -fx-font-weight: bold;" text="ENREGISTRER" textFill="WHITE" />
+                  <MenuButton fx:id="MBtype" layoutX="14.0" layoutY="139.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="206.0" style="-fx-background-color: #fff; -fx-border-color: #ccc;" text="type">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
+                  <TextField fx:id="TFsigl" layoutX="12.0" layoutY="90.0" prefHeight="31.0" prefWidth="209.0" promptText="SIGLE" style="-fx-border-color: none;" />
+                  <TextField fx:id="TFpays" layoutX="14.0" layoutY="189.0" prefHeight="31.0" prefWidth="209.0" promptText="Pays" style="-fx-border-color: none;" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

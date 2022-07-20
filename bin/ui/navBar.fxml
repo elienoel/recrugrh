@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+
+<Pane prefHeight="400.0" prefWidth="162.0" style="-fx-background-color: #00558020;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NavBar">
+   <children>
+      <ImageView fitHeight="65.0" fitWidth="93.0" layoutX="38.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
+      <Label alignment="CENTER" layoutX="-7.0" layoutY="102.0" prefHeight="27.0" prefWidth="174.0" style="-fx-font-weight: bold; -fx-font-size: 18px;" text="ADMIN" textFill="#005580" />
+      <Line endX="54.83332824707031" endY="1.52587890625E-5" layoutX="78.0" layoutY="144.0" startX="-49.66666793823242" startY="1.52587890625E-5" />
+      <Button fx:id="BtnCandidats" alignment="BASELINE_LEFT" layoutX="29.0" layoutY="234.0" mnemonicParsing="false" onAction="#goToCandidats" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: none; -fx-font-weight: bold; -fx-font-size: 10px;" text="CANDIDATS" />
+      <Button fx:id="BtnOffres" alignment="BASELINE_LEFT" layoutX="29.0" layoutY="209.0" mnemonicParsing="false" onAction="#goToOffres" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: none; -fx-font-weight: bold; -fx-font-size: 10px;" text="OFFRES" />
+      <Button fx:id="BtnEcoles" alignment="BASELINE_LEFT" layoutX="29.0" layoutY="256.0" mnemonicParsing="false" onAction="#goToEcoles" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: none; -fx-font-weight: bold; -fx-font-size: 10px;" text="ECOLES" />
+      <Line endX="54.83332824707031" endY="1.52587890625E-5" layoutX="79.0" layoutY="330.0" startX="-49.66666793823242" startY="1.52587890625E-5" />
+      <Button fx:id="BtnDeconnexion" layoutX="17.0" layoutY="361.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: none; -fx-font-weight: bold; -fx-font-size: 10px; -fx-border-color: #000;" text="DECONNEXION" />
+      <Button fx:id="BtnAcceuil" alignment="BASELINE_LEFT" layoutX="30.0" layoutY="186.0" mnemonicParsing="false" onAction="#goToAcceuil" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: none; -fx-font-weight: bold; -fx-font-size: 10px;" text="ACCEUIL" />
+   </children>
+</Pane>

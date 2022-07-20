@@ -1,5 +1,5 @@
 package models;
 
 public class ExpPro {
-    Str
+    String titre;
 }

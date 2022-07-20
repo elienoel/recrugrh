@@ -8,8 +8,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -49,17 +47,17 @@ public class DiplomeForm {
         String sigl= TFsigl.getText();
         
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ateliergl","root","");
+            // Class.forName("com.mysql.cj.jdbc.Driver");
+            // Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ateliergl","root","");
             String query = "INSERT INTO `exp_prof`(`ID_EXP`,`DOMAINE`, `PERIODE`) VALUES (UUID(),?,?)";
 
             // create the mysql insert preparedstatement
-            PreparedStatement preparedStmt = con.prepareStatement(query);
+            PreparedStatement preparedStmt = App.con.prepareStatement(query);
             preparedStmt.setString (1, annee);
             preparedStmt.setString (2, mention);
             // execute the preparedstatement
             preparedStmt.execute();
-            con.close();
+            App.con.close();
 
         } catch (SQLException a) {
             a.printStackTrace();
