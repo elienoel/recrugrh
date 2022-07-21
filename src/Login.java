@@ -54,7 +54,7 @@ public class Login {
         String pwd1= TFpwd.getText();
         
         if (tel.equals("0000000000") && pwd1.equals("admin1234")) {
-            App.root = FXMLLoader.load(getClass().getResource("ui/admin.fxml"));
+            App.root = FXMLLoader.load(getClass().getResource("ui/home.fxml"));
         }else{
             System.out.println("ok");
             App.root = FXMLLoader.load(getClass().getResource("ui/dossier.fxml"));
