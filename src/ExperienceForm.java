@@ -1,3 +1,5 @@
+
+
 import java.io.IOException;
 import java.sql.*;
 import javafx.event.ActionEvent;
@@ -26,22 +28,27 @@ public class ExperienceForm {
     private TextField TFtitre;
 
     @FXML
+    private TextField TFrecom;
+
+    @FXML
     void Ajouter(ActionEvent event) throws ClassNotFoundException, IOException {
         String period= TFperiode.getText();
         String titre= TFtitre.getText();
+        String recommandation= TFrecom.getText();
         
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ateliergl","root","");
-            String query = "INSERT INTO `exp_prof`(`ID_EXP`,`DOMAINE`, `PERIODE`) VALUES (UUID(),?,?)";
+           String query = "INSERT INTO `exp_prof`(`NUMCANDIDAT`, `DOMAINE`, `PERIODE`, `RECOMMANDATION`) VALUES (?,?,?,?)";
 
             // create the mysql insert preparedstatement
-            PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString (1, titre);
-            preparedStmt.setString (2, period);
+            PreparedStatement preparedStmt = App.con.prepareStatement(query);
+            preparedStmt.setString (1, App.userId);
+            preparedStmt.setString (2, titre);
+            preparedStmt.setString (3, period);
+            preparedStmt.setString (4, recommandation);
             // execute the preparedstatement
             preparedStmt.execute();
-            con.close();
+            App.con.close();
+            System.out.println(App.userId);
 
         } catch (SQLException a) {
             a.printStackTrace();

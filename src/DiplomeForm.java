@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 import java.sql.*;
 import javafx.event.ActionEvent;
@@ -10,7 +11,6 @@ import javafx.scene.Node;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-
 public class DiplomeForm {
 
     private Stage stage;
@@ -50,7 +50,7 @@ public class DiplomeForm {
             // Class.forName("com.mysql.cj.jdbc.Driver");
             // Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ateliergl","root","");
             String query = "INSERT INTO `exp_prof`(`ID_EXP`,`DOMAINE`, `PERIODE`) VALUES (UUID(),?,?)";
-
+            
             // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = App.con.prepareStatement(query);
             preparedStmt.setString (1, annee);

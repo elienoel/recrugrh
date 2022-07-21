@@ -1,3 +1,4 @@
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,18 +8,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import models.Offre;
+import models.User;
 
 public class App extends Application {
     static Stage stage;
     static Scene scene;
     static Parent root;
-    static Connection con;
+    public static Connection con;
     static String userId;
+    static User user;
+    static Offre seletedOfrre;
     @Override
     public void start(Stage primaryStage) throws Exception{
         root = FXMLLoader.load(getClass().getResource("ui/login.fxml"));
         primaryStage.setTitle("Recru GHR");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root, 700, 450));
         primaryStage.show();
     }
 
